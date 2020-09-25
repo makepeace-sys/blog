@@ -7,6 +7,11 @@ from api import viewsets
 
 router = DefaultRouter()
 router.register(r'user', viewsets.UserViewset)
+router.register(r'post', viewsets.PostViewSet)
+router.register(r'comment', viewsets.CommentViewSet)
+router.register(r'reportPost', viewsets.ReportPostViewSet)
+router.register(r'reportComment', viewsets.ReportCommentViewSet)
+router.register(r'management', viewsets.ManagementPostViewSet)
 
 
 urlpatterns = [

@@ -28,7 +28,7 @@ class Navbar extends Component {
                             <img className="user-avatar rounded-circle mr-3"
                                  src={(user.profile && user.profile.avatar) ? user.profile.avatar : defaultAvatar}
                                  alt="User Avatar" />
-                            <span className="d-none d-md-inline-block">{user.first_name}</span>
+                            <span className="d-none d-md-inline-block">{user.username}</span>
                         </DropdownToggle>
                         <DropdownMenu>
                             <DropdownItem header>Header</DropdownItem>

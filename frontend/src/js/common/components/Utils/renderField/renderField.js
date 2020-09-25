@@ -219,7 +219,7 @@ export const SelectField = (
                 isSearchable={isSearchable}
                 options={_options}
                 placeholder={placeholder}
-                onChange={(e) => { input.onChange(e ? e[valueKey] : null); }}
+                onChange={(e) => { input.onChange(e || null); }}
                 value={value}
                 isDisabled={disabled}
             />

@@ -55,6 +55,16 @@ class UserViewset(viewsets.ModelViewSet):
             return {'Location': str(data[api_settings.URL_FIELD_NAME])}
         except (TypeError, KeyError):
             return {}
+    
+
+    def destroy(self, request, *args, **kwargs):
+        try: 
+            instancia=self.get_object()
+            instancia.is_active = False
+            instancia.save()
+            return Response({'': str(e)}, status=status.HTTP_208_OK)
+        except Exception as e:
+               return Response({'detail': str(e)}, status=status.HTTP_204_NO_CONTENT)
 
     @action(methods=["put"], detail=False)
     def update_me(self, request, *args, **kwargs):
@@ -119,3 +129,12 @@ class UserViewset(viewsets.ModelViewSet):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Token.DoesNotExist:
             return Response({"detail": "session not found"}, status=status.HTTP_404_NOT_FOUND)
+    
+
+    @action(detail=False, methods=['get'])
+    def users_list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = UserReadSerializer(queryset, many=True)
+        return Response(serializer.data)
+    
+    

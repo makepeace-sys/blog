@@ -7,7 +7,7 @@ class SideBar extends Component {
     }
 
     render() {
-        const { toggleOpen, navToggle, logOut } = this.props;
+        const { toggleOpen, navToggle, logOut, user} = this.props;
         return (
             <aside className={`main-sidebar px-0 col-12 col-md-3 col-lg-2 ${toggleOpen?'':'open'}`}>
                 <div className="main-navbar">
@@ -38,6 +38,36 @@ class SideBar extends Component {
                             </NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink to="/post" className="nav-link" activeClassName={'active'}>
+                                <div className="d-inline-block item-icon-wrapper">
+                                    <i className="material-icons">vertical_split</i>
+                                </div>
+                                <span>Post</span>
+                            </NavLink>
+                        </li>
+                         {user.is_staff == true
+                            && 
+                        <li className="nav-item">
+                            <NavLink to="/report" className="nav-link" activeClassName={'active'}>
+                                <div className="d-inline-block item-icon-wrapper">
+                                    <i className="material-icons">vertical_split</i>
+                                </div>
+                                    <span>Reporte</span>
+                            </NavLink>
+                        </li>
+    }                   
+                         {user.is_staff == true
+                            && 
+                        <li className="nav-item">
+                            <NavLink to="/management" className="nav-link" activeClassName={'active'}>
+                                <div className="d-inline-block item-icon-wrapper">
+                                    <i className="material-icons">vertical_split</i>
+                                </div>
+                                <span>Gestion</span>
+                            </NavLink>
+                        </li>
+    }
+                        {/* <li className="nav-item">
                             <NavLink to="/page2" className="nav-link" activeClassName={'active'}>
                                 <div className="d-inline-block item-icon-wrapper">
                                     <i className="material-icons">vertical_split</i>
@@ -68,7 +98,7 @@ class SideBar extends Component {
                                 </div>
                                 <span>Tabs</span>
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link to="/login" onClick={logOut} className="nav-link">
                                 <div className="d-inline-block item-icon-wrapper">
