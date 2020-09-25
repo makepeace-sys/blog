@@ -26,3 +26,12 @@ class ManagementPostViewSet(viewsets.ModelViewSet):
         return Response({
             'Post Aprobado'
         }, status=status.HTTP_200_OK)
+
+@action(detail=False, methods=['post'])
+    def remove(self, request):
+        
+        Post.objects.filter(pk=request.data).update(is_active=False)
+
+        return Response({
+            'Post Eliminado'
+        }, status=status.HTTP_200_OK)

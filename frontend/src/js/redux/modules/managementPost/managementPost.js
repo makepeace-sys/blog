@@ -45,7 +45,7 @@ const approved = (id) => (dispatch) => {
 };
 
 const deactivate = id => (dispatch) => {
-    api.eliminar(`post/${id}`).then(() => {
+    api.post(`management/remove`, id).then(() => {
         dispatch(listar())
         NotificationManager.success('Post eliminado correctamente', 'Éxito', 1000);
     }).catch((err) => {

@@ -89,7 +89,7 @@ export default class ReportList extends Component {
                                     </div>
                                     <div className=" card-header d-flex justify-content-between ">
                                         <div className="col">
-                                            <h5>Post</h5>
+                                            <h4>Post</h4>
                                         </div>
                                         <div className="col">
                                             <h4>Promedio</h4>
@@ -106,7 +106,7 @@ export default class ReportList extends Component {
                                                 </div>
 
                                                 <div className="col">
-                                                    <h5>{items.average}</h5>
+                                                    <h5>{items.average}%</h5>
                                                 </div>
                                                 <div className="col">
                                                     <h5>{items.comments}</h5>
